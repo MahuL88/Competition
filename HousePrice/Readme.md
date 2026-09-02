@@ -4,6 +4,7 @@ Kompetisi machine learning untuk memprediksi harga jual rumah (`SalePrice`) meng
 
 **Stack:** `pandas`, `numpy`, `seaborn`/`matplotlib`, `scikit-learn`, `optuna` (hyperparameter tuning), `flask` (deployment), `joblib` (menyimpan model & preprocessing objects).
 
+Sumber Data : [House Price](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques)
 ---
 
 ## 1. Data Collecting and Loading 
