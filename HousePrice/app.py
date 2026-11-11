@@ -1,9 +1,19 @@
-
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
 
+# Mendapatkan lokasi folder tempat app.py berada (/mount/src/competition/HousePrice)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+@st.cache_resource
+def load_artifacts():
+    model = joblib.load(os.path.join(BASE_DIR, "gbr_model.joblib"))
+    encoders = joblib.load(os.path.join(BASE_DIR, "train_encoders.joblib"))
+    scaler = joblib.load(os.path.join(BASE_DIR, "scaler_train.joblib"))
+    return model, encoders, scaler
+    
 # =====================================
 # 1. KONFIGURASI APLIKASI
 # =====================================
