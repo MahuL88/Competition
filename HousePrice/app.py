@@ -30,9 +30,9 @@ st.set_page_config(
 
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load("gbr_model.joblib")
-    encoders = joblib.load("train_encoders.joblib")
-    scaler = joblib.load("scaler_train.joblib")
+    model = joblib.load(os.path.join(BASE_DIR, "gbr_model.joblib"))
+    encoders = joblib.load(os.path.join(BASE_DIR, "train_encoders.joblib"))
+    scaler = joblib.load(os.path.join(BASE_DIR, "scaler_train.joblib"))
     return model, encoders, scaler
 
 model, encoders, scaler = load_artifacts()
