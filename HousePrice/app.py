@@ -4,17 +4,6 @@ import pandas as pd
 import numpy as np
 import joblib
 
-
-BASE_DIR = Path(__file__).parent
-
-@st.cache_resource
-def load_artifacts():
-    model = joblib.load(BASE_DIR / "gbr_model.joblib")
-    encoders = joblib.load(BASE_DIR / "train_encoders.joblib")
-    scaler = joblib.load(BASE_DIR / "scaler_train.joblib")
-    return model, encoders, scaler
-
-
 # =====================================
 # 1. KONFIGURASI APLIKASI
 # =====================================
@@ -28,12 +17,14 @@ st.set_page_config(
 # =====================================
 # 2. LOAD MODEL DAN PREPROCESSOR
 # =====================================
+BASE_DIR = Path(__file__).resolve().parent
+
 
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load("gbr_model.joblib")
-    encoders = joblib.load("train_encoders.joblib")
-    scaler = joblib.load("scaler_train.joblib")
+    model = joblib.load(BASE_DIR / "gbr_model.joblib")
+    encoders = joblib.load(BASE_DIR / "train_encoders.joblib")
+    scaler = joblib.load(BASE_DIR / "scaler_train.joblib")
     return model, encoders, scaler
 
 model, encoders, scaler = load_artifacts()
